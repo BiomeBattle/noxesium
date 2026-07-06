@@ -3,14 +3,14 @@
   "id": "noxesium",
   "version": "${version}",
   "name": "Noxesium",
-  "description": "Provides a framework for servers to customise client behavior.",
+  "description": "BiomeBattle Implementation of Noxesium.",
   "authors": [
     "Noxcrew"
   ],
   "contact": {
-    "repo": "https://github.com/Noxcrew/noxesium",
-    "homepage": "https://github.com/Noxcrew/noxesium",
-    "issues": "https://github.com/Noxcrew/noxesium/issues"
+    "repo": "https://github.com/BiomeBattle/noxesium",
+    "homepage": "https://github.com/BiomeBattle/noxesium",
+    "issues": "https://github.com/BiomeBattle/noxesium/issues"
   },
   "license": "LGPL-3.0-only",
   "icon": "assets/noxesium/icon.png",
