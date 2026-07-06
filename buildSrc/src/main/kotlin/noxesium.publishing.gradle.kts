@@ -5,14 +5,10 @@ plugins {
 publishing {
     repositories {
         maven {
-            name = "noxcrew-public"
-            url = uri("https://maven.noxcrew.com/public")
+            url = uri("https://repo.biomebattle.net/repository/biomebattle-repo/")
             credentials {
-                username = System.getenv("NOXCREW_MAVEN_PUBLIC_USERNAME")
-                password = System.getenv("NOXCREW_MAVEN_PUBLIC_PASSWORD")
-            }
-            authentication {
-                create<BasicAuthentication>("basic")
+                username = System.getenv("BB_REPO_USERNAME")
+                password = System.getenv("BB_REPO_PASSWORD")
             }
         }
     }

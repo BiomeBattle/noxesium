@@ -5,7 +5,6 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import noxesium.GitCommitIdValueSource
 
 plugins {
     id("noxesium.publishing") apply false
@@ -23,10 +22,7 @@ val javaVersion: Int = 25
 allprojects {
     group = "com.noxcrew.noxesium"
 
-    val gitCommitId = providers.of(GitCommitIdValueSource::class.java) {
-        parameters.rootDirectory.set(rootProject.projectDir)
-    }.get()
-    version = "${property("mod_version")}+${gitCommitId}"
+    version = property("mod_version") as String
 
     repositories {
         maven("https://maven.covers1624.net/")
