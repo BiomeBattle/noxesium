@@ -36,7 +36,11 @@ public class NoxesiumCodecs {
     public static Codec<Hoverable> HOVERABLE = RecordCodecBuilder.create((instance) -> instance.group(
                     Codec.BOOL.optionalFieldOf("hoverable", true).forGetter(Hoverable::hoverable),
                     KEY.optionalFieldOf("front_sprite").forGetter(Hoverable::frontSprite),
-                    KEY.optionalFieldOf("back_sprite").forGetter(Hoverable::backSprite))
+                    KEY.optionalFieldOf("back_sprite").forGetter(Hoverable::backSprite),
+                    Codec.INT.optionalFieldOf("width").forGetter(Hoverable::width),
+                    Codec.INT.optionalFieldOf("height").forGetter(Hoverable::height),
+                    Codec.INT.optionalFieldOf("offset_x").forGetter(Hoverable::offsetX),
+                    Codec.INT.optionalFieldOf("offset_y").forGetter(Hoverable::offsetY))
             .apply(instance, Hoverable::new));
 
     public static Codec<HoverSound.Sound> SOUND = RecordCodecBuilder.create((instance) -> instance.group(

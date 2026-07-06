@@ -52,10 +52,10 @@ public abstract class HighlightableSlotMixin {
                                     .backSprite()
                                     .map(it -> Identifier.parse(it.asString()))
                                     .orElse(identifier),
-                            i,
-                            j,
-                            k,
-                            l);
+                            i + highlightable.offsetX().orElse(0),
+                            j + highlightable.offsetY().orElse(0),
+                            highlightable.width().orElse(k),
+                            highlightable.height().orElse(l));
                 return;
             }
         }
@@ -91,10 +91,10 @@ public abstract class HighlightableSlotMixin {
                                     .frontSprite()
                                     .map(it -> Identifier.parse(it.asString()))
                                     .orElse(identifier),
-                            i,
-                            j,
-                            k,
-                            l);
+                            i + highlightable.offsetX().orElse(0),
+                            j + highlightable.offsetY().orElse(0),
+                            highlightable.width().orElse(k),
+                            highlightable.height().orElse(l));
                 return;
             }
         }
