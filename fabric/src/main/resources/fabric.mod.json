@@ -5,7 +5,8 @@
   "name": "Noxesium",
   "description": "BiomeBattle Implementation of Noxesium.",
   "authors": [
-    "Noxcrew"
+    "Noxcrew",
+    "BiomeBattle Team"
   ],
   "contact": {
     "repo": "https://github.com/BiomeBattle/noxesium",
@@ -39,5 +40,16 @@
   },
   "suggests": {
     "sodium": ">=0.9.0"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "globe-core",
+      "name": "Noxesium",
+      "id": "noxesium",
+      "links": {
+        "modmenu.discord": "https://bmbtl.link/discord"
+      },
+      "update_checker": false
+    }
   }
 }
