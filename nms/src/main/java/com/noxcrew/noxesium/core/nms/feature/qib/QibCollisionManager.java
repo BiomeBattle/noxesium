@@ -341,6 +341,19 @@ public abstract class QibCollisionManager {
                 player.hurtMarked = true;
                 player.needsSync = true;
             }
+            case QibEffect.Teleport teleport -> {
+                var resolvedYaw = teleport.yaw() + (teleport.yawRelative() ? player.yRotO : 0);
+                var resolvedPitch = teleport.pitch() + (teleport.pitchRelative() ? player.xRotO : 0);
+
+                player.snapTo(teleport.x(), teleport.y(), teleport.z(), resolvedYaw, resolvedPitch);
+                player.setOldPosAndRot();
+
+                if (!teleport.preserveVelocity()) {
+                    player.setDeltaMovement(Vec3.ZERO);
+                    player.hurtMarked = true;
+                    player.needsSync = true;
+                }
+            }
             case QibEffect.StartGliding startGliding -> {
                 // Start gliding regardless of if you are meant to be able to so
                 // the qib can force you to!

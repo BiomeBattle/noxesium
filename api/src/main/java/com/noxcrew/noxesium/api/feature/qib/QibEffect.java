@@ -135,4 +135,19 @@ public sealed interface QibEffect {
      */
     public record ConditionalMomentum(VectorAxis axis, QibRelative relative, float value, QibEffect effect)
             implements QibEffect {}
+
+    /**
+     * Instantly teleports the player to an absolute location within the current world, without collision checks.
+     * This is purely client-side, thus and any server-authoritative teleport that follows, will reconcile the position.
+     */
+    public record Teleport(
+            double x,
+            double y,
+            double z,
+            float yaw,
+            boolean yawRelative,
+            float pitch,
+            boolean pitchRelative,
+            boolean preserveVelocity)
+            implements QibEffect {}
 }
