@@ -48,7 +48,7 @@ public class PaperQibModule : ListeningNoxesiumFeature() {
             NoxesiumPaper.plugin,
             Runnable {
                 for (container in containers.values) {
-                    container.rebuild()
+                    container.rebuildIfNeeded()
                 }
             },
             100,
