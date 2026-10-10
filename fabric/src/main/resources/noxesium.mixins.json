@@ -53,7 +53,6 @@
     "feature.entity.elytra.PlayerStartGlidingHook",
     "feature.entity.elytra.RemoveVanillaElytraSoundHook",
     "feature.entity.trident.SpinAttackCollisionMixin",
-    "feature.entity.trident.TridentHandModelMixin",
     "feature.entity.trident.TridentItemMixin",
     "feature.item.HeldItemOffsetNameMixin",
     "feature.item.HighlightableSlotMixin",
@@ -62,7 +61,7 @@
     "feature.item.UnmovableSlotMixin",
     "feature.item.handoverride.HandItemOverrideAttackFix",
     "feature.item.handoverride.HandItemOverrideInventoryMixin",
-    "feature.item.handoverride.HandItemOverrideRenderMixin",
+    "feature.item.handoverride.HandItemOverrideThirdPersonMixin",
     "feature.map.AddMapSpritesToAtlas",
     "feature.map.CustomGuiRenderingMixin",
     "feature.map.MapUiRenderingMixin",
@@ -94,9 +93,7 @@
     "feature.zoom.CameraZoomMixin",
     "fix.FixCreativeTabEmptyPage",
     "fix.FixMovingPistonFlickeringMixin",
-    "fix.FixTextDisplayTransparencyMixin",
     "fix.FixVehicleTeleportMixin",
-    "fix.RenderPipelineBuilderExt",
     "fix.mouse.FixMouseDownAfterScreenClose",
     "fix.mouse.FixMouseInventoryKeys",
     "fix.mouse.FixMouseToggleKeys",
@@ -109,5 +106,6 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "feature.item.handoverride.HandItemOverrideFirstPersonMixin"
   ]
 }
