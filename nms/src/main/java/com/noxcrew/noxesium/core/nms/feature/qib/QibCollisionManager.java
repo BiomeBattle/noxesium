@@ -351,7 +351,6 @@ public abstract class QibCollisionManager {
 
                 if (!teleport.preserveVelocity()) {
                     player.setDeltaMovement(Vec3.ZERO);
-                    player.hurtMarked = true;
                     player.needsSync = true;
                 }
             }
