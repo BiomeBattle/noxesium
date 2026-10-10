@@ -54,6 +54,12 @@ Noxesium can be easily extended by other mods and plugins. This lets developers 
 Noxesium has extra features to integrate with MCC Island directly! MCC Island detects any user running Noxesium and sends the client extra information on your current location and game state. This allows other mods like [Island Utils](https://github.com/AsoDesu/IslandUtils) and  [Trident](https://github.com/pe3ep/Trident) to use this information for its custom features.
 
 
+# BiomeBattle 🌍
+
+This is the [BiomeBattle](https://github.com/BiomeBattle/noxesium) fork of Noxesium. It adds:
+- **Teleport qib effect**: A `Teleport` effect for qibs that instantly moves the player to an absolute location in the current world.
+- **Resizable hoverable slots**: The `HOVERABLE` component now accepts optional `width`, `height`, `offset_x` and `offset_y`.
+
 # Development 🖥️
 Noxesium is directly developed by [Noxcrew](https://noxcrew.com/), creators of MC Championship and MCC Island, as a result Noxesium focusses on improving the experience for users of those projects.
 
