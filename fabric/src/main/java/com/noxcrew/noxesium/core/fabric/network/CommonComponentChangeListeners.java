@@ -13,13 +13,13 @@ import com.noxcrew.noxesium.core.fabric.feature.qib.QibBehaviorModule;
 import com.noxcrew.noxesium.core.fabric.mixin.component.EntityExt;
 import com.noxcrew.noxesium.core.fabric.mixin.feature.mouse.MouseHandlerExt;
 import com.noxcrew.noxesium.core.feature.DebugOption;
+import com.noxcrew.noxesium.core.nms.feature.qib.SpatialTree;
 import com.noxcrew.noxesium.core.nms.registry.NmsGameComponentTypes;
 import com.noxcrew.noxesium.core.registry.CommonEntityComponentTypes;
 import com.noxcrew.noxesium.core.registry.CommonGameComponentTypes;
 import java.util.function.BiConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.Interaction;
 
 /**
  * Registers listeners for component changes.
@@ -34,14 +34,14 @@ public class CommonComponentChangeListeners extends NoxesiumFeature {
         listenEntity(CommonEntityComponentTypes.QIB_BEHAVIOR, (ignored, context) -> {
             // Update an entity's membership in the spatial container when changing their qib behavior
             var entity = context.receiver();
-            if (entity instanceof Interaction interaction) {
+            if (SpatialTree.canCarryQib(entity)) {
                 NoxesiumApi.getInstance()
                         .getFeatureOptional(QibBehaviorModule.class)
                         .ifPresent(module -> {
                             if (context.newValue() == null) {
-                                module.getSpatialTree().remove(interaction);
+                                module.getSpatialTree().remove(entity);
                             } else {
-                                module.getSpatialTree().update(interaction);
+                                module.getSpatialTree().update(entity);
                             }
                         });
             }

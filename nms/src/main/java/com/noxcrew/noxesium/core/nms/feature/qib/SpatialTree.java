@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Display;
 import net.minecraft.world.entity.Interaction;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
@@ -128,6 +129,14 @@ public abstract class SpatialTree {
     }
 
     /**
+     * Returns whether [entity] is a type that can carry qib behavior.
+     * In BiomeBattle, we also allow Display entities to carry qib behavior - how weird!
+     */
+    public static boolean canCarryQib(Entity entity) {
+        return entity instanceof Interaction || entity instanceof Display;
+    }
+
+    /**
      * Returns the bounding box of an entity.
      */
     public AABB getHitbox(Entity entity) {
@@ -172,7 +181,7 @@ public abstract class SpatialTree {
     /**
      * Updates the current position of [entity] to [aabb].
      */
-    public void update(Interaction entity) {
+    public void update(Entity entity) {
         // If the entity is no longer in the world, remove it from the model!
         if (entity.isRemoved()) {
             remove(entity);
@@ -194,7 +203,7 @@ public abstract class SpatialTree {
     /**
      * Removes a given [entity] from the tree.
      */
-    public void remove(Interaction entity) {
+    public void remove(Entity entity) {
         // Remove the actor if it's currently pending (it may currently be in the process
         // of being added to the model) or in the model and needs removal
         if (pendingEntities.remove(entity.getId()) != null || staticEntities.contains(entity.getId())) {

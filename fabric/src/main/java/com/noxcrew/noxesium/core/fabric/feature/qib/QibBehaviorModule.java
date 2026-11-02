@@ -5,12 +5,12 @@ import com.noxcrew.noxesium.api.registry.NoxesiumRegistries;
 import com.noxcrew.noxesium.core.fabric.NoxesiumMod;
 import com.noxcrew.noxesium.core.fabric.mixin.feature.qib.ClientLevelExt;
 import com.noxcrew.noxesium.core.nms.feature.qib.QibCollisionManager;
+import com.noxcrew.noxesium.core.nms.feature.qib.SpatialTree;
 import com.noxcrew.noxesium.core.registry.CommonEntityComponentTypes;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.kyori.adventure.key.Key;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Interaction;
 import net.minecraft.world.entity.player.Player;
 
 /**
@@ -75,9 +75,8 @@ public class QibBehaviorModule extends NoxesiumFeature {
         var level = Minecraft.getInstance().level;
         if (level == null) return;
         for (var entity : ((ClientLevelExt) level).invokeGetEntities().getAll()) {
-            if (entity instanceof Interaction interaction
-                    && interaction.noxesium$hasComponent(CommonEntityComponentTypes.QIB_BEHAVIOR)) {
-                spatialTree.update(interaction);
+            if (SpatialTree.canCarryQib(entity) && entity.noxesium$hasComponent(CommonEntityComponentTypes.QIB_BEHAVIOR)) {
+                spatialTree.update(entity);
             }
         }
 
